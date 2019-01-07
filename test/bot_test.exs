@@ -29,11 +29,11 @@ defmodule Slack.BotTest do
     assert bot_handler == Bot
     assert slack.me.name == "fake"
     assert slack.team.name == "Foo"
-    assert slack.bots == %{"123" => %{id: "123"}}
-    assert slack.channels == %{"123" => %{id: "123"}}
-    assert slack.groups == %{"123" => %{id: "123"}}
-    assert slack.users == %{"123" => %{id: "123"}}
-    assert slack.ims == %{"123" => %{id: "123"}}
+    assert slack.bots == %{}
+    assert slack.channels == %{}
+    assert slack.groups == %{}
+    assert slack.users == %{}
+    assert slack.ims == %{}
   end
 
   defmodule Stubs.Slack.Rtm do
