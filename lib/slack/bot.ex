@@ -152,12 +152,12 @@ defmodule Slack.Bot do
       ) do
     message = prepare_message(message)
 
-    updated_slack =
-      if Map.has_key?(message, :type) do
-        Slack.State.update(message, slack)
-      else
-        slack
-      end
+    # updated_slack =
+    #   if Map.has_key?(message, :type) do
+    #     Slack.State.update(message, slack)
+    #   else
+    #     slack
+    #   end
 
     new_process_state =
       if Map.has_key?(message, :type) do
@@ -171,7 +171,8 @@ defmodule Slack.Bot do
         process_state
       end
 
-    {:ok, %{state | slack: updated_slack, process_state: new_process_state}}
+    # {:ok, %{state | slack: updated_slack, process_state: new_process_state}}
+    {:ok, %{state | process_state: new_process_state}}
   end
 
   def websocket_handle(_, _conn, state), do: {:ok, state}
